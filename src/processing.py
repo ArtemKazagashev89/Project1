@@ -1,5 +1,5 @@
 def filter_by_state(date, state="EXECUTED"):
-    """Фильтрует данные по указоннаму состоянию"""
+    """Функция фильтрует данные по указоннаму состоянию"""
     filtered_date = []
     for item in date:
         if item.get("state") == state:

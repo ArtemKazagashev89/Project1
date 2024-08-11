@@ -11,9 +11,6 @@ def mask_account_card(number: str) -> str:
         return new_cards
 
 
-print(mask_account_card("Visa Platinum 8990922113665229"))
-print(mask_account_card("Visa Gold 5999414228426353"))
-print(mask_account_card("Счет 73654108430135874305"))
 
 
 def get_date(date: str) -> str:
@@ -21,4 +18,4 @@ def get_date(date: str) -> str:
     return f"{date[8:10]}.{date[5:7]}.{date[0:4]}"
 
 
-print(get_date("2024-03-11T02:26:18.671407"))
+

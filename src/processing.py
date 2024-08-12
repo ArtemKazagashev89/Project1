@@ -1,4 +1,4 @@
-def filter_by_state(date, state="EXECUTED"):
+def filter_by_state(date: list, state="EXECUTED") -> list:
     """Функция фильтрует данные по указоннаму состоянию"""
     filtered_date = []
     for item in date:

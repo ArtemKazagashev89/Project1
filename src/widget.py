@@ -15,11 +15,7 @@ def mask_account_card(number: str) -> str:
         return "Некорректный ввод"
 
 
-
-
-
 def get_date(date: str) -> str:
     """Функция преобразовывает дату"""
     dt = datetime.strptime(date, "%Y-%m-%d")
     return dt.strftime("%d.%m.%Y")
-

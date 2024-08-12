@@ -1,6 +1,5 @@
-import pytest
-from datetime import datetime
 from src.processing import filter_by_state, sort_by_date
+
 
 def test_filter_by_state():
     data = [
@@ -24,7 +23,6 @@ def test_filter_by_state():
         {"id": 2, "state": "CANCELED"},
     ]
     assert result == expected
-
     # Тестируем фильтрацию по состоянию, которого нет в данных
     result = filter_by_state(data, "COMPLETED")
     expected = []
@@ -37,6 +35,7 @@ def test_filter_by_state():
         {"id": 3, "state": "EXECUTED"},
     ]
     assert result == expected
+
 
 # Тесты для sort_by_date
 def test_sort_by_date_ascending():
@@ -53,6 +52,7 @@ def test_sort_by_date_ascending():
     result = sort_by_date(data, reverse_list=False)
     assert result == expected
 
+
 def test_sort_by_date_descending():
     data = [
         {"date": "2023-01-01", "state": "EXECUTED"},
@@ -67,6 +67,7 @@ def test_sort_by_date_descending():
     result = sort_by_date(data)
     assert result == expected
 
+
 def test_sort_by_date_same_dates():
     data = [
         {"date": "2023-01-01", "state": "EXECUTED"},
@@ -80,4 +81,3 @@ def test_sort_by_date_same_dates():
     ]
     result = sort_by_date(data)
     assert result == expected
-

@@ -7,10 +7,7 @@ def filter_by_state(date, state="EXECUTED"):
     return filtered_date
 
 
-
 def sort_by_date(date_list: list, reverse_list: bool = True) -> list:
     """Функция сортирует список по дате"""
     sorted_list = sorted(date_list, key=lambda date_dict: date_dict.get("date"), reverse=reverse_list)
     return sorted_list
-
-

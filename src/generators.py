@@ -1,4 +1,4 @@
-from typing import Generator, Any
+from typing import Generator
 
 
 def filter_by_currency(transactions, currency_code) -> Generator:

@@ -1,11 +1,14 @@
 import sys
-from typing import Callable, Any
+from typing import Any, Callable
 
-def log(filename:str=None) -> Callable:
+
+def log(filename: str = None) -> Callable:
     """Декоратор для логирования работы функций"""
-    def decorator(func:Callable) -> Callable:
-        """ Декоратор, который оборачивает функцию для логирования её выполнения"""
-        def wrapper(*args:Any, **kwargs:Any) -> Any:
+
+    def decorator(func: Callable) -> Callable:
+        """Декоратор, который оборачивает функцию для логирования её выполнения"""
+
+        def wrapper(*args: Any, **kwargs: Any) -> Any:
             """Обёртка, которая выполняет функцию и логирует её выполнение"""
             try:
                 result = func(*args, **kwargs)

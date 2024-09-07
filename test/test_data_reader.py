@@ -2,7 +2,7 @@ from unittest.mock import mock_open, patch
 
 import pandas as pd
 
-from src.csv_excel import read_transactions_from_csv, read_transactions_from_excel
+from src.data_reader import read_transactions_from_csv, read_transactions_from_excel
 
 
 # Тест для функции считывания из CSV

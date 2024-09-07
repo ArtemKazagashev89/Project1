@@ -4,7 +4,6 @@ import pandas as pd
 
 
 def read_transactions_from_csv(file_path: str) -> List[Dict]:
-
     """Считывает финансовые операции из CSV-файла."""
 
     try:
@@ -17,7 +16,6 @@ def read_transactions_from_csv(file_path: str) -> List[Dict]:
 
 
 def read_transactions_from_excel(file_path: str) -> List[Dict]:
-
     """Считывает финансовые операции из Excel-файла."""
 
     try:

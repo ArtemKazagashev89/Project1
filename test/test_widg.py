@@ -6,7 +6,7 @@ from src.widget import get_date, mask_account_card
 @pytest.mark.parametrize(
     "input_number, expected_output",
     [
-        ("Счет 1234567890123456", "Счет ** 3456"),
+        ("Счет 72645194281643232984", "Счет ** 2984"),
         ("Visa 1234567890123456", "Visa 1234 56** **** 3456"),
         ("Master 9876543210987654", "Master 9876 54** **** 7654"),
     ],

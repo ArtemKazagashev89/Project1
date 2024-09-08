@@ -28,3 +28,15 @@ error_function error: ValueError. Inputs: (), {}
 my_function ok
 my_function ok
 error_function error: ValueError. Inputs: (), {}
+my_function ok
+my_function ok
+error_function error: ValueError. Inputs: (), {}
+my_function ok
+my_function ok
+error_function error: ValueError. Inputs: (), {}
+my_function ok
+my_function ok
+error_function error: ValueError. Inputs: (), {}
+my_function ok
+my_function ok
+error_function error: ValueError. Inputs: (), {}

@@ -40,7 +40,7 @@ def get_mask_account(accound_number: str) -> str:
 
     if len(account_number_str) == 20:
         logger.info("Формат счета верный")
-        return f"**{account_number_str[-4:]}"
+        return f"** {account_number_str[-4:]}"
     else:
         logger.warning("Неверный формат счета")
         return "Неверный формат номера счета"

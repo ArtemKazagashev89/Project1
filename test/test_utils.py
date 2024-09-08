@@ -1,37 +1,35 @@
-import json
-from unittest.mock import mock_open, patch
-
 import pytest
-
-from src.utils import load_transaction
-
-
-def test_load_transaction_success():
-    # Тест на успешное чтение файла с корректным JSON
-    mock_data = json.dumps([{"id": 1, "amount": 100}, {"id": 2, "amount": 150}])
-    with patch("builtins.open", mock_open(read_data=mock_data)):
-        result = load_transaction("fake_path.json")
-        assert result == [{"id": 1, "amount": 100}, {"id": 2, "amount": 150}]
+import json
+import os
+from src.utils import get_transactions_info_json
 
 
-def test_load_transaction_empty_file():
-    # Тест на чтение пустого файла
-    mock_data = json.dumps([])
-    with patch("builtins.open", mock_open(read_data=mock_data)):
-        result = load_transaction("fake_path.json")
-        assert result == []
+@pytest.fixture
+def create_temp_json_file(tmp_path):
+    data = [{"id": 1, "amount": 100}, {"id": 2, "amount": 200}]
+    json_file = tmp_path / "test_operations.json"
+    with open(json_file, "w", encoding="utf-8") as f:
+        json.dump(data, f)
+    return json_file
 
 
-def test_load_transaction_invalid_json():
-    # Тест на чтение файла с некорректным JSON
-    mock_data = json.dumps({"id": 1, "amount": 100})  # не список
-    with patch("builtins.open", mock_open(read_data=mock_data)):
-        result = load_transaction("fake_path.json")
-        assert result == []
+def test_get_transactions_info_json_valid(create_temp_json_file):
+    result = get_transactions_info_json(str(create_temp_json_file))
+    expected = [{"id": 1, "amount": 100}, {"id": 2, "amount": 200}]
+    assert result == expected
 
 
-def test_load_transaction_file_not_found():
-    # Тест на обработку исключения FileNotFoundError
-    with patch("builtins.open", side_effect=FileNotFoundError):
-        result = load_transaction("fake_path.json")
-        assert result == []
+def test_get_transactions_info_json_empty_file(tmp_path):
+    empty_file = tmp_path / "empty.json"
+    with open(empty_file, "w", encoding="utf-8") as f:
+        f.write("")
+    result = get_transactions_info_json(str(empty_file))
+    assert result == []
+
+
+def test_get_transactions_info_json_invalid_file(tmp_path):
+    invalid_file = tmp_path / "invalid.json"
+    with open(invalid_file, "w", encoding="utf-8") as f:
+        f.write("Not a JSON")
+    result = get_transactions_info_json(str(invalid_file))
+    assert result == []
